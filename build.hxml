@@ -1,0 +1,11 @@
+# libs used in project
+-lib jQueryExtern
+# source folder
+-cp src
+# class entry point
+-main Main
+#JavaScript target
+-js js/playrr_website.js
+# -D source-map-content
+# -debug
+-dce full

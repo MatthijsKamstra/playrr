@@ -1,5 +1,6 @@
 bin
-BUILD.md
+download
 node_modules
 out
+BUILD.md
 TODO.md

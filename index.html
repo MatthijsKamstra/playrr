@@ -29,6 +29,15 @@
 	<meta property="og:description" content="Playrr :: an open source radio. Spotify and Youtube combined!" />
 	<meta property="og:site_name" content="Playrr" />
 	
+	<!-- experiment with http://materializecss.com/ -->
+
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+
+
 	<style type="text/css">
 	html,
 	body {
@@ -41,18 +50,39 @@
 	}
 	
 	#mock {
+		position: relative;
 		width: 437px;
 		margin: 0 auto;
+	}
+
+	#download-btn {
+		position: absolute;
+		top: 25%;
+    	right: 0px;
 	}
 	</style>
 </head>
 
 <body>
 	<div id="mock">
-		<a href="https://github.com/MatthijsKamstra/playrr" target="_blank">
+
+		<a href="https://github.com/MatthijsKamstra/playrr" target="_blank" id="screenshot">
 			<img src="images/playrr_osx.png" height="842" width="437">
 		</a>
+
+		<div id="download-btn">
+			<a href="https://github.com/MatthijsKamstra/playrr/raw/master/download/Playrr.app.zip" download class="waves-effect waves-light btn-large"><i class="material-icons right">get_app</i>OSX (64bit)</a>
+		</div>
+
 	</div>
+
+
+
+	<!--Import jQuery before materialize.js-->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+	<script type="text/javascript" src="js/playrr_website.js"></script>
+
 </body>
 
 </html>

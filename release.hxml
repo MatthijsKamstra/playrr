@@ -65,7 +65,6 @@
 # --macro npm.Package.export("package.json")
 
 # make sure to start with an empty playrr
--cmd rm -R bin/public/_cache
 -cmd rm -R bin/public/_db
 
 

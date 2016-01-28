@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		
+		<!-- don't want Chrome to pop the translate question when something "exotic" is spelled -->
+		<meta name="google" value="notranslate">
+		<meta name="google" content="notranslate">
+
+		<title>Playrr</title>
+
+		<!-- for some reason jquery needs to be loaded here.... electron is slow??? -->
+		<script src="js/jquery-2.1.4.min.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="css/playrr.css">
+
+		<style type="text/css">
+
+			html, body {
+				background-image: url('images/wood.jpg');
+				padding: 0;
+				margin: 0;
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+
+			.mock {
+				width: 325px;
+				margin: 0 auto;
+				box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, .75);
+			}
+		</style>
+
+	</head>
+
+<body>
+
+	<div id="loader"></div>
+
+	<div id="mock">
+
+		<div class="playrr-container">
+
+			<!-- start screen -->
+			<div id="start">
+				<h1>Create playlist:</h1>
+				<div class="search">
+					<form class="form-inline">
+						<label for="exampleInputEmail2">Artist:</label>
+						<input type="text" class="form-control" id="inputSearch2" placeholder="Search for artist" name="username">
+						<!-- <button type="submit" class="btn btn-default" id="submitBtn"><div class="search-icon"></div></button> -->
+						<input type="button" value="Search" id="submitBtn2">
+					</form>
+				</div>
+			</div>
+
+			<!-- cover -->
+			<div class="cover" id="cover">
+				<!-- audio player -->
+				<div id="player"></div>
+
+				<div class="top-left"></div>
+				<div id="current" class="radio"><p>playlist based upon: deamau5</p></div>
+				<div class="top-right">
+					<div class="share"></div>
+					<div class="heart"></div>
+				</div>
+				<div id="controle">
+					<div class="track-previous"></div>
+					<div class="track-play"></div>
+					<div class="track-next"></div>
+				</div>
+				<div id="bottomslidein">
+					<div class="artist" id="trackinfo">
+						<h1>Skrillex</h1>
+						<h2>My Name is Skrillex EP</h2>
+						<h3>Do Da Oliphant</h3>
+					</div>
+					<div class="search">
+						<form class="form-inline">
+							<label for="exampleInputEmail2">Artist:</label>
+							<input type="text" class="form-control" id="inputSearch" placeholder="Search for artist" name="username">
+							<!-- <button type="submit" class="btn btn-default" id="submitBtn"><div class="search-icon"></div></button> -->
+							<input type="button" value="Search" id="submitBtn">
+						</form>
+					</div>
+				</div>
+				<div class="search-icon"></div>
+				<div id="alert"><p>this is for feedback</p></div>
+			</div>
+		
+
+			<!-- playlist -->
+			<div id="playlist" class="playlist"></div>
+
+		</div>
+
+	</div>
+
+
+
+
+		<!-- from jQuery's CDN (http://jquery.com/download/#using-jquery-with-a-cdn) -->
+		<!-- <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script> -->
+		<script src="js/jquery-2.1.4.min.js"></script>
+
+		<!-- socket.io -->
+		<!-- <script src="https://cdn.socket.io/socket.io-1.3.7.js"></script> -->
+		<script src="js/socket.io-1.3.7.js"></script>
+
+		<!-- Your Haxe compiled script -->
+		<script src="js/client.js"></script>
+
+		<!-- livereload -->
+		<script src="http://0.0.0.0:35729/livereload.js" type="text/javascript" id="livereload"></script>		
+
+	</body>
+</html>

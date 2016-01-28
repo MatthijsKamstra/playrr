@@ -1,0 +1,132 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video{margin:0;padding:0;border:0;font:inherit;vertical-align:baseline}
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+body{line-height:1}
+ol,ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:after,blockquote:before,q:after,q:before{content:'';content:none}
+table{border-spacing:0;border-collapse:collapse}
+:focus {outline:none;}
+
+/**
+ * Playrr style
+ */
+body,html{background-color:#000;width:100%;height:100%;font-family:'HelveticaNeue-Light';color:#fff;font-size:13px;-webkit-font-smoothing:antialiased}
+
+/* loader */
+#loader{top: 0;background-image:url(../images/ajax-loader.gif);background-position:center center;background-repeat:no-repeat;width:100%;height:100%;position:absolute;opacity:.5;background-color:silver;z-index:999}
+
+/* start */
+#start{position:absolute;width:100%;height:100%;background-color:#1F2226;z-index:9999;display:none}
+#start .search{position:relative;top:33%}
+#start h1{font-family:Helvetica-Neue-Condensed-Black;font-size:35px;text-align:center;width:100%;position:relative;top:30%}
+
+/* cover */
+.cover,.playrr-container{position:relative}
+.cover{height:325px;background-size:cover;background-color:#1F2226;background-image:url(http://lorempixel.com/800/800/);background-position:center center}
+.cover{overflow: hidden}
+
+/* which artist is used for this playlist */
+.radio{top:10px;position:absolute;width:100%;text-align:center}
+.radio p{display:inline-block;white-space:nowrap;background-color:#1F2226;border-radius:11px;margin:0 auto;text-align:center;padding:5px 10px;line-height:110%}
+.radio p a{text-decoration:none;color:#fff}
+
+/* share and like, not active at this moment */
+.top-left,.top-right{border:1px solid pink;width:20%;top:10px;position:absolute;display:none}
+.top-right{right:10px}
+.top-left{left:10px}
+.top-right .heart,.top-right .share{width:16px;height:16px;float:right;margin:2px}
+.share{background:url(../images/share.svg) center center no-repeat}
+.heart{background:url(../images/heart.svg) center center no-repeat}
+
+/* controlers */
+#controle{position:absolute;top:80px;width:100%}#controle .track-next,#controle .track-previous{width:40px;height:40px;position:absolute;top:15px;margin:10px;border-radius:20px;background-color:rgba(255,255,255,.5);box-shadow:0 0 8px 2px rgba(0,0,0,.1)}#controle .track-previous{background:url(../images/track-previous.svg) center center no-repeat rgba(255,255,255,.1);left:0;cursor:pointer}#controle .track-next{background:url(../images/track-next.svg) center center no-repeat rgba(255,255,255,.1);right:0;cursor:pointer}#controle .track-play{width:80px;height:80px;background:url(../images/play-big.svg) center center no-repeat;margin:0 auto;border:5px solid #fff;border-radius:45px;background-color:rgba(255,255,255,.5);box-shadow:0 0 15px 0 rgba(0,0,0,.5);cursor:pointer;display:none}
+
+/*gradient container */
+#bottomslidein{position:absolute;bottom:-40px;width:100%;height:50%;background:linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,1) 100%)}
+
+/* artist description */
+.artist h1,.artist h2,.artist h3{color:#fff;-webkit-font-smoothing:antialiased;text-shadow:0 0 20px rgba(0,0,0,.7)}
+.artist{text-align:center;width:100%;padding-top:20px}
+.artist h1{font-family:Helvetica-Neue-Condensed-Black;font-size:35px}
+.artist h2,.artist h3{font-family:HelveticaNeue-Light}
+.artist h2{font-size:18px}
+.artist h3{font-size:14px;padding-top: 2px}
+
+/* search */
+.search,.search-icon{bottom:0;position:absolute}
+.search-icon{bottom:0px;width:20px;height:20px;padding:10px;background:url(../images/search.svg) center center no-repeat;right:0;cursor:pointer}
+.search{width:100%;height:40px;overflow:hidden}
+.search form{margin:8px}
+.search label{width:40px;display:inline-block;text-align:right}
+.search .form-control{border:0;background-color:#5E6D81;color:#fff;border-radius:11px;padding:5px 10px;width:150px}
+.search input[type=button]{padding:5px 15px;background:#ccc;border:0;cursor:pointer;border-radius:5px}
+
+/* playlist */
+.playlist-artist,.playlist-nr{color:#fff;font-size:15px;-webkit-font-smoothing:antialiased}
+.playlist-nr{font-family:Helvetica-Neue-Condensed-Black;width:36px;text-align:center;display:inline-block;padding-right:5px}
+.playlist-artist{font-family:HelveticaNeue-Light}
+.playlist-img{width:40px;height:40px;float:right;background-size:cover;background-position:center center;background-repeat:no-repeat;opacity:.4}
+#playlist{background-color:#1F2226;height:350px;overflow-y:scroll}
+#playlist li{vertical-align:middle;height:40px;line-height:40px;background:url(../images/play-small.svg) -30px center no-repeat;}
+#playlist li a{display:block;text-decoration:none;background:url(../images/play-small.svg) -30px center no-repeat;transition:all .2s ease}
+#playlist li.even{background-color:#1B3137}
+#playlist li.odd{background-color:#16282E}
+#playlist li a:hover .playlist-img,#playlist li.selected .playlist-img{opacity:1;transition:all 1s ease}
+#playlist li a:hover .playlist-nr,#playlist li.selected .playlist-nr{color:transparent}
+#playlist li a:hover,#playlist li.selected{background:url(../images/play-small.svg) 4px center no-repeat rgba(0,0,0,.4);transition:all .5s ease}
+
+
+/* scrollbar styling */
+/* http://cssdeck.com/labs/css3-webkit-vertical-scrollbars/ */
+#playlist::-webkit-scrollbar-track{border-radius:8px;background-color:#1B3137}
+#playlist::-webkit-scrollbar{width:10px;background-color:#1B3137}
+#playlist::-webkit-scrollbar-thumb{border-radius:8px;background-color:#000}
+
+
+/* guess what? */
+@font-face {
+  font-family: 'HelveticaNeue-UltraLight';
+  src: url('../font/HelveticaNeue-UltraLight.eot'); /* IE9 Compat Modes */
+  src: url('../font/HelveticaNeue-UltraLight.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	   url('../font/HelveticaNeue-UltraLight.woff') format('woff'), /* Modern Browsers */
+	   url('../font/HelveticaNeue-UltraLight.ttf')  format('truetype'), /* Safari, Android, iOS */
+	   url('../font/HelveticaNeue-UltraLight.svg#9453ea8da727d260bcdbfa605bdbb5d2') format('svg'); /* Legacy iOS */
+  font-style:   normal;
+  font-weight:  100;
+}
+@font-face {
+  font-family: 'HelveticaNeue-Medium';
+  src: url('../font/HelveticaNeue-Medium.eot'); /* IE9 Compat Modes */
+  src: url('../font/HelveticaNeue-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	   url('../font/HelveticaNeue-Medium.woff') format('woff'), /* Modern Browsers */
+	   url('../font/HelveticaNeue-Medium.ttf')  format('truetype'), /* Safari, Android, iOS */
+	   url('../font/HelveticaNeue-Medium.svg#d7af0fd9278f330eed98b60dddea7bd6') format('svg'); /* Legacy iOS */ 
+  font-style:   normal;
+  font-weight:  400;
+}
+@font-face {
+  font-family: 'Helvetica-Neue-Condensed-Black';
+  src: url('../font/Helvetica-Neue-Condensed-Black.eot'); /* IE9 Compat Modes */
+  src: url('../font/Helvetica-Neue-Condensed-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	   url('../font/Helvetica-Neue-Condensed-Black.woff') format('woff'), /* Modern Browsers */
+	   url('../font/Helvetica-Neue-Condensed-Black.ttf')  format('truetype'), /* Safari, Android, iOS */
+	   url('../font/Helvetica-Neue-Condensed-Black.svg#d7af0fd9278f330eed98b60dddea7bd6') format('svg'); /* Legacy iOS */ 
+  font-style:   normal;
+  font-weight:  400;
+}
+@font-face {
+  font-family: 'HelveticaNeue-Light';
+  src: url('../font/HelveticaNeue-Light.eot'); /* IE9 Compat Modes */
+  src: url('../font/HelveticaNeue-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	   url('../font/HelveticaNeue-Light.woff') format('woff'), /* Modern Browsers */
+	   url('../font/HelveticaNeue-Light.ttf')  format('truetype'), /* Safari, Android, iOS */
+	   url('../font/HelveticaNeue-Light.svg#7384ecabcada72f0e077cd45d8e1c705') format('svg'); /* Legacy iOS */      
+  font-style:   normal;
+  font-weight:  200;
+}

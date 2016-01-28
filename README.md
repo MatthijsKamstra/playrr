@@ -53,11 +53,11 @@ Don't have that (yet), so we need to make sure your highly tuned OSX allows us t
 
 
 <a name="install1"></a>
-*screenshot 1*
+*screenshot 1*  
 ![](images/osx_install1.png)
 
 <a name="install2"></a>
-*screenshot 2*
+*screenshot 2*  
 ![](images/osx_install2.png)
 
 

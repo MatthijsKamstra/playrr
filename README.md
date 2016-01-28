@@ -34,7 +34,7 @@ Use it with this in mind (and help or create an issue).
 To make the install of Playrr smoother, I need a license from Apple.  
 Don't have that (yet), so we need to make sure your highly tuned OSX allows us to install the app. Follow the instructions below (till the last point) 
 
-1. Download [`Playrr.app.zip`](Playrr.app.zip) and unzip
+1. Download [`Playrr.app.zip`](download/Playrr.app.zip) and unzip
 2. Open "System preferences" [screenshot](#install1)
 	- Click on "Security & Privacy" 
 3. Choose tab "General" [screenshot](#install2)
@@ -44,7 +44,7 @@ Don't have that (yet), so we need to make sure your highly tuned OSX allows us t
 4. Now open `Playrr.app` you just unzipped
 5. Kablammmm you are a brand new `Playrr` user, thank you!
 6. **Important:** Go back to the "Security & Privacy" 
-	- **Change "Allow apps downloaded from" to "Mac App Store and identified developers" or stricter.**
+	- **Change "Allow apps downloaded from" back to "Mac App Store and identified developers" or stricter.**
 
 -----
 

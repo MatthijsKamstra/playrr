@@ -1,5 +1,6 @@
 # libs used in project
 -lib jQueryExtern
+-lib markdown
 # source folder
 -cp src
 # class entry point

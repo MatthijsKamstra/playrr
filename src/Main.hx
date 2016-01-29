@@ -12,6 +12,7 @@ class Main {
 
 	private var _btn : Element;
 	private var _screenshot : Element;
+	private var _howtobuild : Element;
 
 	// https://nodejs.org/static/js/download.js
 	public function new():Void
@@ -28,7 +29,21 @@ class Main {
 
 		_btn 			= _doc.getElementById('download-btn');
 		_screenshot 	= _doc.getElementById('screenshot');
+		_howtobuild		= _doc.getElementById('how-to-build');
 
+
+		// [mck] test if I could use the data written in markdown
+		var req = new haxe.Http('https://raw.githubusercontent.com/MatthijsKamstra/playrr/master/wiki/how_to_build.md');
+		req.onData = function (data : String)
+		{
+		    // Browser.alert('data: $data');
+		    _howtobuild.innerHTML = Markdown.markdownToHtml(data);
+		}
+		req.onError = function (error)
+		{
+		    // Browser.alert('error: $error');
+		}
+		req.request(true);
 
 
 		// [mck] os		

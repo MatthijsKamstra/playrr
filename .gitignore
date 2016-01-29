@@ -1,8 +1,7 @@
-BUILD.md
 npm-debug.log
+node_modules
 bin/node_modules
 bin/public/_db
-node_modules
-out/Playrr-darwin-x64/Playrr.app
 out
+BUILD.md
 TODO.md

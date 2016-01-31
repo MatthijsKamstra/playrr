@@ -191,7 +191,7 @@ Main.prototype = {
 		var downloadFolder = "Playrr-" + osName + "-" + arch;
 		var description = osNiceName + " (" + arch + ")";
 		this._btn.classList.add(os + "_" + arch);
-		this._btn.innerHTML = "<a href=\"https://github.com/MatthijsKamstra/playrr/raw/master/" + downloadFolder + "/Playrr.zip\" download class=\"waves-effect waves-light btn-large\"><i class=\"material-icons right\">get_app</i>" + description + "</a><br/><a href=\"https://github.com/MatthijsKamstra/playrr/raw/master/download/\" target=\"_blank\" class=\"right underlined\">Other downloads</a>";
+		this._btn.innerHTML = "<a href=\"https://github.com/MatthijsKamstra/playrr/raw/master/download/" + downloadFolder + "/Playrr.zip?raw=true\" download class=\"waves-effect waves-light btn-large\"><i class=\"material-icons right\">get_app</i>" + description + "</a><br/><a href=\"https://github.com/MatthijsKamstra/playrr/tree/master/download/\" target=\"_blank\" class=\"right underlined\">Other downloads</a>";
 	}
 	,loadData: function() {
 		var _g = this;

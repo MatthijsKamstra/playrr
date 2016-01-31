@@ -32,19 +32,18 @@ class Main {
 		_howtobuild		= _doc.getElementById('how-to-build');
 
 
-		// [mck] test if I could use the data written in markdown
-		var req = new haxe.Http('https://raw.githubusercontent.com/MatthijsKamstra/playrr/master/wiki/how_to_build.md');
-		req.onData = function (data : String)
-		{
-		    // Browser.alert('data: $data');
-		    _howtobuild.innerHTML = Markdown.markdownToHtml(data);
-		}
-		req.onError = function (error)
-		{
-		    // Browser.alert('error: $error');
-		}
-		req.request(true);
-
+		changeLink();
+		loadData(); // test
+	}
+	
+	public function changeLink():Void
+	{
+	    /**
+	     * 	<a href="https://github.com/MatthijsKamstra/playrr/raw/master/download/Playrr.app.zip" download class="waves-effect waves-light btn-large"><i class="material-icons right">get_app</i>OSX (64bit)</a>
+			<br/>
+			<a href="https://github.com/MatthijsKamstra/playrr/raw/master/download/" target="_blank" class="right">Other downloads</a>
+	     */
+	    
 
 		// [mck] os		
 		var r = ~/Win|Mac|Linux/;
@@ -57,7 +56,7 @@ class Main {
 		// [mck] arch
 		var r1 = ~/x86_64|Win64|WOW64/;
 		var str1 = _nav.userAgent;
-		var arch = 'x32';
+		var arch = 'ia32';
 		if (r1.match(str1)){
 			// arch = r1.matched(0);
 			arch = 'x64';
@@ -65,66 +64,67 @@ class Main {
 		// trace(arch);
 
 
+		var osName = '';
+		var osNiceName = '';
+
 
 		switch (os) {
-			case 'Mac': 	trace('mac'); arch = 'x64';
-			case 'Win': 	trace('win');
-			case 'Linux': 	trace('linux');
-			default: 		trace('unclear');
+			case 'Mac': 	
+				trace('mac'); 
+				arch = 'x64';
+				osName = 'darwin';
+				osNiceName = 'OS X';
+			case 'Win': 	
+				trace('win');
+				osName = 'win32';
+				osNiceName = 'Windows';
+			case 'Linux': 	
+				trace('linux');
+				osName = 'linux';
+				osNiceName = 'Linux';
+			default: 		
+				trace('unclear');
 		}		
 
 
-		 _btn.classList.add(os + "_" + arch);
+		/**
+		 * Playrr-darwin-x64
+		 * Playrr-linux-ia32
+		 * Playrr-linux-x64
+		 * Playrr-win32-ia32
+		 * Playrr-win32-x64
+		 */
+
+		var downloadFolder = "Playrr-" + osName + "-" + arch;
+		var description = osNiceName + " (" + arch + ")";
+
+
+		_btn.classList.add(os + "_" + arch);
+
+		_btn.innerHTML = '<a href="https://github.com/MatthijsKamstra/playrr/raw/master/$downloadFolder/Playrr.zip" download class="waves-effect waves-light btn-large"><i class="material-icons right">get_app</i>$description</a><br/><a href="https://github.com/MatthijsKamstra/playrr/raw/master/download/" target="_blank" class="right underlined">Other downloads</a>';
+
 
 	}
 
-	/*
-	private	function versionIntoHref(nodeList, filename) {
-		var linkEls = Array.prototype.slice.call(nodeList);
-		var version;
-		var el;
-
-		for (var i = 0; i < linkEls.length; i++) {
-		version = linkEls[i].getAttribute('data-version');
-		el = linkEls[i]
-
-		// Windows 64-bit files for 0.x.x need to be prefixed with 'x64/'
-		if (os === 'Win' && (version[1] === '0' && arch === 'x64')) {
-		el.href += arch + '/';
+	public function loadData():Void
+	{
+		    
+	
+		// [mck] test if I could use the data written in markdown
+		var req = new haxe.Http('https://raw.githubusercontent.com/MatthijsKamstra/playrr/master/wiki/how_to_build.md');
+		req.onData = function (data : String)
+		{
+		    // Browser.alert('data: $data');
+		    _howtobuild.innerHTML = Markdown.markdownToHtml(data);
 		}
-
-		el.href += filename.replace('%version%', version);
+		req.onError = function (error)
+		{
+		    // Browser.alert('error: $error');
 		}
-		}
-
-		if (downloadHead && buttons) {
-		dlLocal = downloadHea_doc.getAttribute('data-dl-local');
-		switch (os) {
-		case 'Mac':
-		versionIntoHref(buttons, 'node-%version%.pkg');
-		downloadHead[text] = dlLocal + ' OS X (x64)';
-		break;
-		case 'Win':
-		versionIntoHref(buttons, 'node-%version%-' + arch + '.msi');
-		downloadHead[text] = dlLocal + ' Windows (' + arch +')';
-		break;
-		case 'Linux':
-		versionIntoHref(buttons, 'node-%version%-linux-' + arch + '.tar.gz');
-		downloadHead[text] = dlLocal + ' Linux (' + arch + ')';
-		break;
-		}
-		}
-
-		// Windows button on download page
-		var winButton = _doc.getElementById('windows-downloadbutton');
-		if (winButton && os === 'Win') {
-		var winText = winButton.getElementsByTagName('p')[0];
-		version = winButton.getAttribute('data-version');
-		winButton.href = winButton.href.replace(/x(86|64)/, arch);
-		winText[text] = winText[text].replace(/x(86|64)/, arch);
-		}
+		req.request(true);
 	}
-	*/
+
+
 	
 	static public function main()
 	{

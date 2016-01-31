@@ -151,10 +151,50 @@ Main.main = function() {
 };
 Main.prototype = {
 	init: function() {
-		var _g = this;
 		this._btn = this._doc.getElementById("download-btn");
 		this._screenshot = this._doc.getElementById("screenshot");
 		this._howtobuild = this._doc.getElementById("how-to-build");
+		this.changeLink();
+		this.loadData();
+	}
+	,changeLink: function() {
+		var r = new EReg("Win|Mac|Linux","");
+		var str = this._nav.platform;
+		r.match(str);
+		var os = r.matched(0);
+		var r1 = new EReg("x86_64|Win64|WOW64","");
+		var str1 = this._nav.userAgent;
+		var arch = "ia32";
+		if(r1.match(str1)) arch = "x64";
+		var osName = "";
+		var osNiceName = "";
+		switch(os) {
+		case "Mac":
+			console.log("mac");
+			arch = "x64";
+			osName = "darwin";
+			osNiceName = "OS X";
+			break;
+		case "Win":
+			console.log("win");
+			osName = "win32";
+			osNiceName = "Windows";
+			break;
+		case "Linux":
+			console.log("linux");
+			osName = "linux";
+			osNiceName = "Linux";
+			break;
+		default:
+			console.log("unclear");
+		}
+		var downloadFolder = "Playrr-" + osName + "-" + arch;
+		var description = osNiceName + " (" + arch + ")";
+		this._btn.classList.add(os + "_" + arch);
+		this._btn.innerHTML = "<a href=\"https://github.com/MatthijsKamstra/playrr/raw/master/" + downloadFolder + "/Playrr.zip\" download class=\"waves-effect waves-light btn-large\"><i class=\"material-icons right\">get_app</i>" + description + "</a><br/><a href=\"https://github.com/MatthijsKamstra/playrr/raw/master/download/\" target=\"_blank\" class=\"right underlined\">Other downloads</a>";
+	}
+	,loadData: function() {
+		var _g = this;
 		var req = new haxe_Http("https://raw.githubusercontent.com/MatthijsKamstra/playrr/master/wiki/how_to_build.md");
 		req.onData = function(data) {
 			_g._howtobuild.innerHTML = Markdown.markdownToHtml(data);
@@ -162,29 +202,6 @@ Main.prototype = {
 		req.onError = function(error) {
 		};
 		req.request(true);
-		var r = new EReg("Win|Mac|Linux","");
-		var str = this._nav.platform;
-		r.match(str);
-		var os = r.matched(0);
-		var r1 = new EReg("x86_64|Win64|WOW64","");
-		var str1 = this._nav.userAgent;
-		var arch = "x32";
-		if(r1.match(str1)) arch = "x64";
-		switch(os) {
-		case "Mac":
-			console.log("mac");
-			arch = "x64";
-			break;
-		case "Win":
-			console.log("win");
-			break;
-		case "Linux":
-			console.log("linux");
-			break;
-		default:
-			console.log("unclear");
-		}
-		this._btn.classList.add(os + "_" + arch);
 	}
 	,__class__: Main
 };

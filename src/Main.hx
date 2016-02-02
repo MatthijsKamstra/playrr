@@ -11,7 +11,7 @@ class Main {
 	private var _nav = js.Browser.navigator;
 
 	private var _btn : Element;
-	private var _screenshot : Element;
+	private var _screenshot : ImageElement;
 	private var _howtobuild : Element;
 
 	// https://nodejs.org/static/js/download.js
@@ -28,7 +28,7 @@ class Main {
 	{
 
 		_btn 			= _doc.getElementById('download-btn');
-		_screenshot 	= _doc.getElementById('screenshot');
+		_screenshot 	= cast (_doc.getElementById('screenshot'), js.html.ImageElement);
 		_howtobuild		= _doc.getElementById('how-to-build');
 
 
@@ -66,6 +66,7 @@ class Main {
 
 		var osName = '';
 		var osNiceName = '';
+		var img = 'images/playrr_osx.png';
 
 
 		switch (os) {
@@ -74,17 +75,22 @@ class Main {
 				arch = 'x64';
 				osName = 'darwin';
 				osNiceName = 'OS X';
+				img = 'images/playrr_osx.png';
 			case 'Win': 	
 				trace('win');
 				osName = 'win32';
 				osNiceName = 'Windows';
+				img = 'images/playrr_osx.png';
 			case 'Linux': 	
 				trace('linux');
 				osName = 'linux';
 				osNiceName = 'Linux';
+				img = 'images/playrr_linux.png';
 			default: 		
 				trace('unclear');
 		}		
+
+		_screenshot.src = img;
 
 
 		/**

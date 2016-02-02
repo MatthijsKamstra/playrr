@@ -152,7 +152,7 @@ Main.main = function() {
 Main.prototype = {
 	init: function() {
 		this._btn = this._doc.getElementById("download-btn");
-		this._screenshot = this._doc.getElementById("screenshot");
+		this._screenshot = js_Boot.__cast(this._doc.getElementById("screenshot") , HTMLImageElement);
 		this._howtobuild = this._doc.getElementById("how-to-build");
 		this.changeLink();
 		this.loadData();
@@ -168,26 +168,31 @@ Main.prototype = {
 		if(r1.match(str1)) arch = "x64";
 		var osName = "";
 		var osNiceName = "";
+		var img = "images/playrr_osx.png";
 		switch(os) {
 		case "Mac":
 			console.log("mac");
 			arch = "x64";
 			osName = "darwin";
 			osNiceName = "OS X";
+			img = "images/playrr_osx.png";
 			break;
 		case "Win":
 			console.log("win");
 			osName = "win32";
 			osNiceName = "Windows";
+			img = "images/playrr_osx.png";
 			break;
 		case "Linux":
 			console.log("linux");
 			osName = "linux";
 			osNiceName = "Linux";
+			img = "images/playrr_linux.png";
 			break;
 		default:
 			console.log("unclear");
 		}
+		this._screenshot.src = img;
 		var downloadFolder = "Playrr-" + osName + "-" + arch;
 		var description = osNiceName + " (" + arch + ")";
 		this._btn.classList.add(os + "_" + arch);
@@ -625,6 +630,9 @@ js_Boot.__instanceof = function(o,cl) {
 		if(cl == Enum && o.__ename__ != null) return true;
 		return o.__enum__ == cl;
 	}
+};
+js_Boot.__cast = function(o,t) {
+	if(js_Boot.__instanceof(o,t)) return o; else throw new js__$Boot_HaxeError("Cannot cast " + Std.string(o) + " to " + Std.string(t));
 };
 js_Boot.__nativeClassName = function(o) {
 	var name = js_Boot.__toStr.call(o).slice(8,-1);

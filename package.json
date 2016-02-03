@@ -12,7 +12,6 @@
 		"nodemon": "^1.7.1"
 	},
 	"dependencies": {
-		"jade": "*",
 		"nedb": "^1.2.0",
 		"morgan": "^1.5.1",
 		"socket.io": "1.0",

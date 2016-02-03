@@ -5,3 +5,4 @@ bin/public/_db
 out
 BUILD.md
 TODO.md
+bin/dist

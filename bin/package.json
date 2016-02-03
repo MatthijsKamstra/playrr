@@ -2,10 +2,9 @@
 	"license": "MIT",
 	"description": "Playrr app",
 	"author": "Matthijs Kamstra aka [mck]",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"private": true,
 	"dependencies": {
-		"jade": "*",
 		"nedb": "^1.2.0",
 		"morgan": "^1.5.1",
 		"socket.io": "1.0",
@@ -15,9 +14,28 @@
 		"spotify-web-api-node": "^2.1.0",
 		"youtube-node": "^1.3.0",
 		"serve-favicon": "*",
-		"express": "~4.0"
+		"express": "~4.0",
+		"electron-packager": "^5.2.1",
+    	"electron-prebuilt": "^0.36.7",
+    	"electron-builder": "^2.6.0"
 	},
 	"scripts": {
-		"start": "electron index.js"
+		"start": "electron index.js",
+
+		"dev": "electron ./app",
+
+	    "clean": "rm -rf ./dist",
+	    "clean:osx": "rm -rf ./dist/osx",
+	    "clean:win": "rm -rf ./dist/win",
+	    "clean:all": "rm -rf ./dist/all",
+
+	    "pack": "npm run clean && npm run pack:osx && npm run pack:win && npm run pack:all",
+	    "pack:osx": "npm run clean:osx && electron-packager . Playrr --out=dist/osx --platform=darwin --arch=x64 --version=0.36.4 --icon=../assets/playrr.icns",
+	    "pack:win": "npm run clean:win && electron-packager . Playrr --out=dist/win --platform=win32 --arch=ia32 --version=0.36.4 --icon=../assets/playrr.ico",
+	    "pack:all": "npm run clean:all && electron-packager . Playrr --out=dist/all --all=true --arch=all --platform=all --version=0.36.4 --icon=../assets/playrr",
+
+	    "build": "npm run build:osx && npm run build:win",
+	    "build:osx": "npm run pack:osx && electron-builder \"dist/osx/Playrr-darwin-x64/Playrr.app\" --platform=osx --out=\"dist/osx\" --config=builder.json",
+	    "build:win": "npm run pack:win && electron-builder \"dist/win/Playrr-win32-ia32/\" --platform=win --out=\"dist/win\" --config=builder.json"
 	}
 }

@@ -30,8 +30,6 @@ MainClient.main = function() {
 MainClient.prototype = {
 	init: function() {
 		var _g = this;
-		var _mock = this._doc.getElementById("mock");
-		_mock.classList.add("mock");
 		this._submitBtn = window.document.getElementById("submitBtn");
 		this._inputSearch = js_Boot.__cast(window.document.getElementById("inputSearch") , HTMLInputElement);
 		this._trackinfo = window.document.getElementById("trackinfo");
@@ -740,5 +738,3 @@ model_SocketConstants.PREV_TRACK = "prev-track";
 model_SocketConstants.CURRENT = "current";
 MainClient.main();
 })(typeof console != "undefined" ? console : {log:function(){}}, typeof window != "undefined" ? window : exports, typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
-
-//# sourceMappingURL=client.js.map

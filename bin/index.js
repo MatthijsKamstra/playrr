@@ -23,9 +23,8 @@ var MainElectron = function() {
 		electron_main_App.quit();
 	});
 	electron_main_App.on("ready",function() {
-		mainWindow = new electron_main_BrowserWindow({ resizable : true, width : 700, height : 730, center : true, minWidth : 325, minHeight : 730, title : "Playrr"});
+		mainWindow = new electron_main_BrowserWindow({ resizable : false, width : 325, height : 730, center : true, minWidth : 325, minHeight : 730, title : "Playrr"});
 		mainWindow.loadURL("http://localhost:3000");
-		mainWindow.webContents.openDevTools();
 		mainWindow.on("closed",function() {
 			mainWindow = null;
 		});
@@ -866,5 +865,3 @@ model_SocketConstants.SCREEN = "screen";
 model_SocketConstants.CURRENT = "current";
 MainElectron.main();
 })(typeof console != "undefined" ? console : {log:function(){}}, typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
-
-//# sourceMappingURL=index.js.map

@@ -847,5 +847,3 @@ model_SocketConstants.SCREEN = "screen";
 model_SocketConstants.CURRENT = "current";
 Main.main();
 })(typeof console != "undefined" ? console : {log:function(){}}, typeof window != "undefined" ? window : typeof global != "undefined" ? global : typeof self != "undefined" ? self : this);
-
-//# sourceMappingURL=Playrr.js.map

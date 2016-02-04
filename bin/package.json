@@ -24,18 +24,28 @@
 
 		"dev": "electron ./app",
 
-	    "clean": "rm -rf ./dist",
-	    "clean:osx": "rm -rf ./dist/osx",
-	    "clean:win": "rm -rf ./dist/win",
-	    "clean:all": "rm -rf ./dist/all",
+	    "clean": "rm -rf ./../dist",
+	    "clean:osx": "rm -rf ./../dist/osx",
+	    "clean:win": "rm -rf ./../dist/win",
+	    "clean:linux": "rm -rf ./../dist/linux",
+	    "clean:all": "rm -rf ./../dist/all",
 
-	    "pack": "npm run clean && npm run pack:osx && npm run pack:win && npm run pack:all",
-	    "pack:osx": "npm run clean:osx && electron-packager . Playrr --out=dist/osx --platform=darwin --arch=x64 --version=0.36.4 --icon=../assets/playrr.icns",
-	    "pack:win": "npm run clean:win && electron-packager . Playrr --out=dist/win --platform=win32 --arch=ia32 --version=0.36.4 --icon=../assets/playrr.ico",
-	    "pack:all": "npm run clean:all && electron-packager . Playrr --out=dist/all --all=true --arch=all --platform=all --version=0.36.4 --icon=../assets/playrr",
+	    "move": "npm run pack:linux && npm run build && npm run move:osx && npm run move:win && npm run move:linux",
+	    "move:osx": "mv ../dist/osx/Playrr-darwin-x64/Playrr.dmg ../download/Playrr-darwin-x64",
+	    "move:win": "mv '../dist/win/Playrr-win32-x64/Playrr Setup.exe' ../download/Playrr-win32-x64 && mv '../dist/win/Playrr-win32-ia32/Playrr Setup.exe' ../download/Playrr-win32-ia32",
+	    "move:linux": "zip -r -X ../download/Playrr-linux-ia32/playrr.zip ../dist/linux/Playrr-linux-ia32 && zip -r -X ../download/Playrr-linux-x64/playrr.zip ../dist/linux/Playrr-linux-x64",
+
+	    "pack": "npm run clean && npm run pack:osx && npm run pack:win && npm run pack:linux",
+	    "pack:osx": "npm run clean:osx && electron-packager . Playrr --out=../dist/osx --platform=darwin --arch=x64 --version=0.36.4 --icon=../assets/playrr.icns",
+	    "pack:win": "npm run clean:win && electron-packager . Playrr --out=../dist/win --platform=win32 --arch=ia32 --version=0.36.4 --icon=../assets/playrr.ico && electron-packager . Playrr --out=../dist/win --platform=win32 --arch=x64 --version=0.36.4 --icon=../assets/playrr.ico",
+	    "pack:linux": "npm run clean:linux && electron-packager . Playrr --out=../dist/linux --platform=linux --arch=ia32 --version=0.36.4 && electron-packager . Playrr --out=../dist/linux --platform=linux --arch=x64 --version=0.36.4",
+	    "pack:all": "npm run clean:all && electron-packager . Playrr --out=../dist/all --all=true --arch=all --platform=all --version=0.36.4 --icon=../assets/playrr",
 
 	    "build": "npm run build:osx && npm run build:win",
-	    "build:osx": "npm run pack:osx && electron-builder \"dist/osx/Playrr-darwin-x64/Playrr.app\" --platform=osx --out=\"dist/osx\" --config=builder.json",
-	    "build:win": "npm run pack:win && electron-builder \"dist/win/Playrr-win32-ia32/\" --platform=win --out=\"dist/win\" --config=builder.json"
+	    "build:osx": "npm run pack:osx && electron-builder \"../dist/osx/Playrr-darwin-x64/Playrr.app\" --platform=osx --out=\"../dist/osx/Playrr-darwin-x64\" --config=builder.json",
+	    "build:win": "npm run pack:win && electron-builder \"../dist/win/Playrr-win32-ia32/\" --platform=win --out=\"../dist/win/Playrr-win32-ia32\" --config=builder.json && electron-builder \"../dist/win/Playrr-win32-x64/\" --platform=win --out=\"../dist/win/Playrr-win32-x64\" --config=builder.json"
+
+
+
 	}
 }

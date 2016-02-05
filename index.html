@@ -71,20 +71,30 @@
 		background-color: #ff3333;
 	}
 
+	#beta {
+		position: absolute;
+		left: 20%;
+	}
+
+	#content {
+		position: relative;;
+		margin-top: -100px;
+		/*z-index: 2;*/
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}
+
 	</style>
 </head>
 
 <body>
 
-<!-- 	
-	<div class="container">
-		<div class="row">
-			<div class="col s4 offset-s4 test">x</div>
-		</div>
+	<div id="beta">
+		<img src="images/ribbon_beta.svg">
 	</div>
- -->
 
 	<div id="mock">
+
 
 		<a href="https://github.com/MatthijsKamstra/playrr" target="_blank">
 			<img src="images/playrr_osx.png" height="842" width="437" id="screenshot">
@@ -96,6 +106,15 @@
 			<a href="https://github.com/MatthijsKamstra/playrr/tree/master/download/" target="_blank" class="right underlined">Other downloads</a>
 		</div>
 
+	</div>
+
+	<div class="white" id="content">
+		<div class="container">
+			<h2>Playrr</h2>
+			<p>
+				Listen to Spotify radio with Youtube videos!
+			</p>
+		</div>
 	</div>
 
 

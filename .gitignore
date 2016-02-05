@@ -4,6 +4,7 @@ bin/node_modules
 bin/public/_db
 out
 BUILD.md
+BUILD.md
 TODO.md
 bin/dist
 dist

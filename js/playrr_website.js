@@ -199,8 +199,8 @@ Main.prototype = {
 		this._screenshot.src = img;
 		var description = osNiceName + " (" + arch + ")";
 		this._btn.classList.add(os + "_" + arch);
-		var linkurl = "https://drive.google.com/file/d/" + link + "/view?usp=sharing";
-		this._btn.innerHTML = "<a href=\"" + linkurl + "\" download class=\"waves-effect waves-light btn-large\" target=\"_blank\"><i class=\"material-icons right\">get_app</i>" + description + "</a><br/><!--<a href=\"https://github.com/MatthijsKamstra/playrr/tree/master/download/\" target=\"_blank\" class=\"right underlined\">Other downloads</a>-->";
+		var linkurl = "https://docs.google.com/uc?export=download&id=" + link;
+		this._btn.innerHTML = "<a href=\"" + linkurl + "\" class=\"waves-effect waves-light btn-large\" target=\"_blank\"><i class=\"material-icons right\">get_app</i>" + description + "</a><br/><!--<a href=\"https://github.com/MatthijsKamstra/playrr/tree/master/download/\" target=\"_blank\" class=\"right underlined\">Other downloads</a>-->";
 	}
 	,loadData: function() {
 		var _g = this;

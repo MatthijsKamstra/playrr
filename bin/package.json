@@ -31,9 +31,9 @@
 	    "clean:all": "rm -rf ./../dist/all",
 
 	    "move": "npm run pack:linux && npm run build && npm run move:osx && npm run move:win && npm run move:linux",
-	    "move:osx": "mv ../dist/osx/Playrr-darwin-x64/Playrr.dmg ../download/Playrr-darwin-x64",
-	    "move:win": "mv '../dist/win/Playrr-win32-x64/Playrr Setup.exe' ../download/Playrr-win32-x64 && mv '../dist/win/Playrr-win32-ia32/Playrr Setup.exe' ../download/Playrr-win32-ia32",
-	    "move:linux": "zip -r -X ../download/Playrr-linux-ia32/playrr.zip ../dist/linux/Playrr-linux-ia32 && zip -r -X ../download/Playrr-linux-x64/playrr.zip ../dist/linux/Playrr-linux-x64",
+	    "move:osx": "mkdir -p ../download/Playrr-darwin-x64 && mv ../dist/osx/Playrr-darwin-x64/Playrr.dmg ../download/Playrr-darwin-x64",
+	    "move:win": "mkdir -p ../download/Playrr-win32-x64 && mv '../dist/win/Playrr-win32-x64/Playrr Setup.exe' ../download/Playrr-win32-x64 && mkdir -p ../download/Playrr-win32-ia32 &&  mv '../dist/win/Playrr-win32-ia32/Playrr Setup.exe' ../download/Playrr-win32-ia32",
+	    "move:linux": "mkdir -p ../download/Playrr-linux-ia32 && mkdir -p ../download/Playrr-linux-x64 && zip -r -X ../download/Playrr-linux-ia32/playrr.zip ../dist/linux/Playrr-linux-ia32 && zip -r -X ../download/Playrr-linux-x64/playrr.zip ../dist/linux/Playrr-linux-x64",
 
 	    "pack": "npm run clean && npm run pack:osx && npm run pack:win && npm run pack:linux",
 	    "pack:osx": "npm run clean:osx && electron-packager . Playrr --out=../dist/osx --platform=darwin --arch=x64 --version=0.36.4 --icon=../assets/playrr.icns",

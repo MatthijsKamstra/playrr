@@ -169,6 +169,7 @@ Main.prototype = {
 		var osName = "";
 		var osNiceName = "";
 		var img = "images/playrr_osx.png";
+		var link = "";
 		switch(os) {
 		case "Mac":
 			console.log("mac");
@@ -176,27 +177,30 @@ Main.prototype = {
 			osName = "darwin";
 			osNiceName = "OS X";
 			img = "images/playrr_osx.png";
+			link = "0B71bEuxrm-kDM0ZZekIwVFRKYkU";
 			break;
 		case "Win":
 			console.log("win");
 			osName = "win32";
 			osNiceName = "Windows";
 			img = "images/playrr_osx.png";
+			if(arch == "x64") link = "0B71bEuxrm-kDZDFMcTRLQmk1ZDQ"; else link = "0B71bEuxrm-kDbW1mTmh3RXA1d1k";
 			break;
 		case "Linux":
 			console.log("linux");
 			osName = "linux";
 			osNiceName = "Linux";
 			img = "images/playrr_linux.png";
+			if(arch == "x64") link = "0B71bEuxrm-kDWEJlN0E1NFRfdkE"; else link = "0B71bEuxrm-kDaXNsN0RMVW94d0E";
 			break;
 		default:
 			console.log("unclear");
 		}
 		this._screenshot.src = img;
-		var downloadFolder = "Playrr-" + osName + "-" + arch;
 		var description = osNiceName + " (" + arch + ")";
 		this._btn.classList.add(os + "_" + arch);
-		this._btn.innerHTML = "<a href=\"https://github.com/MatthijsKamstra/playrr/raw/master/download/" + downloadFolder + "/Playrr.zip?raw=true\" download class=\"waves-effect waves-light btn-large\"><i class=\"material-icons right\">get_app</i>" + description + "</a><br/><a href=\"https://github.com/MatthijsKamstra/playrr/tree/master/download/\" target=\"_blank\" class=\"right underlined\">Other downloads</a>";
+		var linkurl = "https://drive.google.com/file/d/" + link + "/view?usp=sharing";
+		this._btn.innerHTML = "<a href=\"" + linkurl + "\" download class=\"waves-effect waves-light btn-large\" target=\"_blank\"><i class=\"material-icons right\">get_app</i>" + description + "</a><br/><!--<a href=\"https://github.com/MatthijsKamstra/playrr/tree/master/download/\" target=\"_blank\" class=\"right underlined\">Other downloads</a>-->";
 	}
 	,loadData: function() {
 		var _g = this;

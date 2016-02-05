@@ -67,6 +67,7 @@ class Main {
 		var osName = '';
 		var osNiceName = '';
 		var img = 'images/playrr_osx.png';
+		var link = '';
 
 
 		switch (os) {
@@ -76,16 +77,25 @@ class Main {
 				osName = 'darwin';
 				osNiceName = 'OS X';
 				img = 'images/playrr_osx.png';
+				link = '0B71bEuxrm-kDM0ZZekIwVFRKYkU';
 			case 'Win': 	
 				trace('win');
 				osName = 'win32';
 				osNiceName = 'Windows';
 				img = 'images/playrr_osx.png';
+				if(arch == 'x64')
+					link = '0B71bEuxrm-kDZDFMcTRLQmk1ZDQ';
+				else
+					link = '0B71bEuxrm-kDbW1mTmh3RXA1d1k';
 			case 'Linux': 	
 				trace('linux');
 				osName = 'linux';
 				osNiceName = 'Linux';
 				img = 'images/playrr_linux.png';
+				if(arch == 'x64')
+					link = '0B71bEuxrm-kDWEJlN0E1NFRfdkE';
+				else
+					link = '0B71bEuxrm-kDaXNsN0RMVW94d0E';
 			default: 		
 				trace('unclear');
 		}		
@@ -101,15 +111,17 @@ class Main {
 		 * Playrr-win32-x64
 		 */
 
-		var downloadFolder = "Playrr-" + osName + "-" + arch;
 		var description = osNiceName + " (" + arch + ")";
 
 
 		_btn.classList.add(os + "_" + arch);
 
+		// link = '0B71bEuxrm-kDWEJlN0E1NFRfdkE';
+		// var linkurl = 'https://docs.google.com/uc?export=download&id=' + link;
+		var linkurl = 'https://drive.google.com/file/d/'+link+'/view?usp=sharing';
 
 		// https://github.com/MatthijsKamstra/playrr/blob/master/download/Playrr-darwin-x64/Playrr.zip?raw=true
-		_btn.innerHTML = '<a href="https://github.com/MatthijsKamstra/playrr/raw/master/download/$downloadFolder/Playrr.zip?raw=true" download class="waves-effect waves-light btn-large"><i class="material-icons right">get_app</i>$description</a><br/><a href="https://github.com/MatthijsKamstra/playrr/tree/master/download/" target="_blank" class="right underlined">Other downloads</a>';
+		_btn.innerHTML = '<a href="$linkurl" download class="waves-effect waves-light btn-large" target="_blank"><i class="material-icons right">get_app</i>$description</a><br/><!--<a href="https://github.com/MatthijsKamstra/playrr/tree/master/download/" target="_blank" class="right underlined">Other downloads</a>-->';
 
 
 	}

@@ -6,6 +6,7 @@ No audio adds :D
 
 ## Wiki
 
+* [Playrr installers](wiki/download_links.md)
 * [How to build](wiki/how_to_build.md)
 * [Installing Playrr](wiki/install_playrr.md) 
 

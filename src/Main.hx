@@ -122,7 +122,7 @@ class Main {
 
 		// https://github.com/MatthijsKamstra/playrr/blob/master/download/Playrr-darwin-x64/Playrr.zip?raw=true
 		// _btn.innerHTML = '<a href="$linkurl" download class="waves-effect waves-light btn-large" target="_blank"><i class="material-icons right">get_app</i>$description</a><br/><!--<a href="https://github.com/MatthijsKamstra/playrr/tree/master/download/" target="_blank" class="right underlined">Other downloads</a>-->';
-		_btn.innerHTML = '<a href="$linkurl" class="waves-effect waves-light btn-large" target="_blank"><i class="material-icons right">get_app</i>$description</a><br/><!--<a href="https://github.com/MatthijsKamstra/playrr/tree/master/download/" target="_blank" class="right underlined">Other downloads</a>-->';
+		_btn.innerHTML = '<a href="$linkurl" class="waves-effect waves-light btn-large" target="_blank"><i class="material-icons right">get_app</i>$description</a><br/><a href="https://github.com/MatthijsKamstra/playrr/blob/master/wiki/download_links.md" target="_blank" class="right underlined">Other downloads</a>';
 
 
 	}
